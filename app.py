@@ -19,7 +19,7 @@ fig.add_trace(go.Scatter(x=df.index,y=df.Close,name='stock_close'))
 fig.layout.update(title_text='Line graph of Close price',xaxis_rangeslider_visible=True)
 st.plotly_chart(fig)
 
-loaded_model = pickle.load(open(r"model_trained.pkl",'rb'))
+loaded_model = pickle.load(open("model_trained.pkl",'rb'))
 days = st.slider('Days for Prediction',0,200)
 if days > 1:
     fct = pd.DataFrame(loaded_model.forecast(days))
